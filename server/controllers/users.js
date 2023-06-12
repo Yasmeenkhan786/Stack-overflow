@@ -1,13 +1,11 @@
 import mongoose from "mongoose";
-import users from "../models/auth.js";
+import User from "../models/auth.js";
 
 export const getAllUsers = async (req, res) => {
-  console.log("vghvv");
-
   try {
-    const allUsers = await users.find();
+    const allUsers = await User.find();
     const allUserDetails = [];
-    allUsers.forEach((users) => {
+    allUsers.forEach(users => {
       allUserDetails.push({
         _id: users._id,
         name: users.name,
@@ -30,7 +28,7 @@ export const updateProfile = async (req, res) => {
     return res.status(404).send("question unavailable...");
   }
   try {
-    const updatedProfile = await users.findByIdAndUpdate(
+    const updatedProfile = await User.findByIdAndUpdate(
       _id,
       { $set: { name: name, about: about, tags: tags } },
       { new: true }

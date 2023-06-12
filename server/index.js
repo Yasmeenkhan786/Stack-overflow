@@ -13,7 +13,7 @@ app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.send("This is a stack overflow clone API yess");
 });
 
@@ -28,14 +28,13 @@ const DATABASE_URL =
 mongoose
   .connect(DATABASE_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
   })
   
   .then(() =>
     app.listen(PORT, () => {
       console.log(`server running on port ${PORT}`);
       console.log('Done')
-
     })
   )
-  .catch((err) => console.log(err.message));
+  .catch((err) => console.log(err));

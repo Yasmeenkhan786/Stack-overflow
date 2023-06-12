@@ -36,7 +36,7 @@ const EditProfileForm = ({currentUser , setSwitch}) => {
             </label>
             <label htmlFor="tags">
                 <h3>Watched Tags</h3>
-                <p>Add tags sepersted by one space</p>
+                <p>Add tags sepersted by 1 space</p>
                 <input type="text" id='tags' onChange={(e)=> setTags(e.target.value.split( ' '))} />
             </label><br />
             <input type="submit" value="Save profile"  className='user-submit-btn'/>

@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import logo1 from "../../assets/logo.png";
@@ -7,27 +7,28 @@ import Avatar from "../../components/Avatar/Avatar";
 // import Button from "../../components/Button/Button";
 import "./Navbar.css";
 import { setCurrentUser } from "../../actions/CurrentUse";
-// import decode  from "jwt-decode";
+import decode  from "jwt-decode";
 
 const Navbar = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   var User = useSelector((state) => state.currentUserReducer);
+  // var User = null
 
-const handleLogout = ()=>{
-  dispatch({type: " LOGOUT"})
-  navigate('/')
-  dispatch(setCurrentUser(null))
-}
-  
+  const handleLogout = ()=>{
+    dispatch({type: " LOGOUT"})
+    navigate('/')
+    dispatch(setCurrentUser(null))
+  }
+
   useEffect(() => {
-    // const token = User?.token
-    // if(token){
-    //   const decodedToken = decode(token)
-    //   if(decodedToken.exp * 1000 < new Date().getTime()){
-    //     handleLogout()
-    //   }
-    // }
+    const token = User?.token
+    if(token){
+      const decodedToken = decode(token)
+      if(decodedToken.exp * 1000 < new Date().getTime()){
+        handleLogout()
+      }
+    }
     dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile'))))
   }, [dispatch])
   return (
@@ -56,9 +57,11 @@ const handleLogout = ()=>{
         ) : (
           <>
             <Avatar backgroundColor="#009dff" px="10px" py="7px" borderRadius="50%" color="white">
-              <Link to={`/Users/${User?.result?._id}`}style={{ color: "white", textDecoration: "none" }}>
-               { User.result.name.charAt(0).toUpperCase()} 
-               
+              <Link
+                to={`/Users/${User?.result?._id}`}
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                {User.result.name.charAt(0).toUpperCase()}
               </Link>
             </Avatar>
             <button className="nav-item nav-links" onClick={handleLogout}>Log Out</button>
