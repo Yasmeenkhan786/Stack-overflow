@@ -14,6 +14,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.get('/', (req, res) => {
+  res.json("hello")
   res.send("This is a stack overflow clone API yess");
 });
 
