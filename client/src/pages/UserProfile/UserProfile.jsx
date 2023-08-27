@@ -41,7 +41,7 @@ const UserProfile = () => {
               </div>
             </div>
             {
-              currentUser?.result._id == id && (
+              currentUser?.result._id === id && (
                 <button type='button' onClick={()=> setSwitch(true)} className='edit-profile-btn'>
                   <FontAwesomeIcon icon={faPen}/>Edit Profile
                 </button>
