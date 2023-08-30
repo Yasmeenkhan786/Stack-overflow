@@ -45,7 +45,7 @@ const AskQuestions = () => {
                 onChange={(e) => {
                   setQuestionTitle(e.target.value);
                 }}
-                placeholder="e.g. Is there is a R finction for finding the index number of an element in a vector?"
+                placeholder="e.g. Is there is a R finction for finding the index number?"
               />
             </label>
             <label htmlFor="ask-quest-body">

@@ -10,13 +10,13 @@
   padding: 50px 0px 10px 0px;
 }
 .ask-quest-container form .ask-form-container {
-  padding:20px;
+  padding: 20px;
   background-color: white;
   border-radius: 3px;
   box-shadow: 0px 10px 25px rgb(0 0 0 /5%), 0px 20px 48px rgb(0 0 0 /5%), 0px 1px 4px rgb(0 0 0 /5%);
 }
 
-.ask-form-container label h4{
+.ask-form-container label h4 {
   margin-bottom: 0%;
 }
 .ask-form-container label p {
@@ -44,4 +44,21 @@
 }
 .review-btn:hover {
   background-color: #0086d8;
+}
+
+@media screen and (max-width: 420px) {
+  .ask-quest-container form .ask-form-container {
+    padding: 20px 13px;
+  }
+  .ask-form-container label input,
+  .ask-form-container label textarea {
+    font-size: 11px;
+    width: calc(100% - 16px);
+  }
+  .ask-quest-container h1 {
+    padding: 50px 0px 10px 10px;
+  }
+  .review-btn{
+    margin: 15px;
+  }
 }
