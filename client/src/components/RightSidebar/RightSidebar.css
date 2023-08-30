@@ -60,3 +60,18 @@
     border-radius: 2px;
     font-size: 14px;
 }
+
+/* media queries */
+@media screen and (max-width: 950px){
+    .right-sidebar{
+        float: none;
+        margin: 0px;
+        width: 100%;
+    }
+    .right-sidebar-div-2{
+        width: 300px;
+    }
+    .widget-tags{
+        width: 300px;
+    }
+}
