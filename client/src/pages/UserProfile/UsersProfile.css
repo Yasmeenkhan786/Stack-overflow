@@ -76,3 +76,20 @@
     margin-left: 10px;
     cursor: pointer;
 }
+@media screen and (max-width:700px){
+.edit-profile-btn{
+    margin-top: 1rem;
+}
+}
+@media screen and (max-width:450px) {
+    .user-details-container{
+        display: block;
+    }
+    .user-name{
+        font-size: 15px;
+    }
+    .edit-profile-form label input ,
+    .edit-profile-form label textarea{
+        width: 100%;  
+    }
+}
