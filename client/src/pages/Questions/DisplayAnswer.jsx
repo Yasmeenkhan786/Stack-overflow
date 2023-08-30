@@ -33,7 +33,10 @@ const DisplayAnswer = ({ question, handleShare }) => {
             </div>
             <div>
               <p>answered {moment(ans.answeredOn).fromNow()}</p>
-              <Link
+              
+            </div>
+          </div>
+          <Link
                 to={`/Users/${ans.userId}`}
                 className="user-link"
                 style={{ color: "#0086d8" }}
@@ -43,8 +46,6 @@ const DisplayAnswer = ({ question, handleShare }) => {
                 </Avatar>
                 <div>{ans.userAnswered}</div>
               </Link>
-            </div>
-          </div>
         </div>
       ))}
     </div>

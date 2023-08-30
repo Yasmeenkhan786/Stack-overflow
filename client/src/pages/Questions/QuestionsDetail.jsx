@@ -14,73 +14,7 @@ import { deleteQuestion, postAnswer , voteQuestion } from "../../actions/questio
 
 const QuestionsDetail = () => {
   const { id } = useParams();
-
   const questionList = useSelector((state) => state.questionReducer);
-
-  // console.log(questionList);
-
-  // var questionList = [
-  //   {
-  //     _id: "1",
-  //     upVotes: 3,
-  //     downVotes: 2,
-  //     noOfanswers: 2,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "IT meant to be",
-  //     questionTags: ["java", "node.js", "react js", "mongodb"],
-  //     userPosted: "mano",
-  //     userId: 1,
-  //     askedOn: "jan 1",
-  //     answer: [
-  //       {
-  //         answerBody: "Answer",
-  //         userAnswered: "kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 2,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     _id: "2",
-  //     upVotes: 3,
-  //     downVotes: 2,
-  //     noOfanswers: 0,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "IT meant to be",
-  //     questionTags: ["javascript", "R.", "python"],
-  //     userPosted: "mano",
-  //     userId: 1,
-  //     askedOn: "jan 1",
-  //     answer: [
-  //       {
-  //         answerBody: "Answer",
-  //         userAnswered: "kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 2,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     _id: "3",
-  //     upVotes: 3,
-  //     downVotes: 2,
-  //     noOfanswers: 0,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "IT meant to be",
-  //     questionTags: ["javascript", "R.", "python"],
-  //     userPosted: "mano",
-  //     userId: 1,
-  //     askedOn: "jan 1",
-  //     answer: [
-  //       {
-  //         answerBody: "Answer",
-  //         userAnswered: "kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 2,
-  //       },
-  //     ],
-  //   },
-  // ];
   const [Answer, setAnswer] = useState("");
   const Navigate = useNavigate();
   const dispatch = useDispatch();
@@ -90,6 +24,7 @@ const QuestionsDetail = () => {
 
   const handlePostAns = (e, answerLength) => {
     e.preventDefault();
+    reset()
     if (User === null) {
       alert("Login or signup ro answer a question");
       Navigate("/Auth");
@@ -104,12 +39,16 @@ const QuestionsDetail = () => {
             answerBody: Answer,
             userAnswered: User.result.name,
             userId : User.result._id
+           
           })
         );
-        
+       window.location.reload()
       }
     }
     
+  }
+  const reset =()=>{
+    setAnswer("")
   }
   const handleShare = () => {
     copy(url+location.pathname);
@@ -145,7 +84,7 @@ const QuestionsDetail = () => {
                     <div className="question-votes">
                       <img className="up-vote" src={upvote} alt="" srcset="" width="23"  onClick={handleUpVote}/>
                       <p>{question.upVote.length - question.downVote.length}</p>
-                      <img src={downvote} alt="" srcset=""  onClick={handleDownVote}/>
+                      <img className="down-vote" src={downvote} alt="" srcset=""  onClick={handleDownVote}/>
                     </div>
                     <div style={{ width: "100%" }}>
                       <p className="question-body">{question.questionBody}</p>
@@ -168,7 +107,11 @@ const QuestionsDetail = () => {
                         </div>
                         <div>
                           <p>asked {moment(question.askedOn).fromNow()}</p>
-                          <Link
+                          
+                        </div>
+                        
+                      </div>
+                      <Link
                             to={`/Users/${question.userId}`}
                             className="user-link"
                             style={{ color: "#0086d8" }}
@@ -178,8 +121,6 @@ const QuestionsDetail = () => {
                             </Avatar>
                             <div>{question.userPosted}</div>
                           </Link>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </section>

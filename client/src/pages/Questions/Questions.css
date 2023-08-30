@@ -43,7 +43,7 @@
 .question-details-container .question-details-tags p,
 .post-ans-container p .ans-tags{
   padding: 5px;
-  margin: 3px;
+  margin: 4px 3px;
   font-size: 13px;
   background-color:#e1ecf4;
   color: #39739d;
@@ -79,9 +79,11 @@
 .user-link{
   display: flex;
   align-items: center;
+  float: right;
 }
 .user-link div{
   padding-left: 10px;
+  font-size: 12px;
 }
 .post-ans-container form textarea{
   padding: 10px;
@@ -112,3 +114,62 @@
   line-height: 18px;
   white-space: pre-line;
 }
+/* media queries */
+@media screen and (max-width: 950px){
+  .question-details-page{
+      width: 100%;
+      float: none;
+  
+  }
+  .question-details-container{
+    margin-top: 4rem;
+  }
+}
+@media screen and (max-width:420px) {
+ .question-details-container h1{
+  font-size: 20px;
+ } 
+ .question-votes{
+  padding: 5px 10px 5px 0px;
+ }
+ .question-votes p{
+  font-size: 18px;
+ }
+ .question-votes .up-vote{
+  width: 15px;
+ }
+ .question-votes .down-vote{
+  width: 20px;
+ }
+ .question-body{
+  font-size: 14px;
+  margin: 5px 0px;
+ }
+ .question-details-container .question-details-tags p,
+.post-ans-container p .ans-tags{
+  margin: 3px;
+  font-size: 12px;}
+
+  .question-action-user button{
+    font-size: 12px;
+  }
+  .question-action-user div:nth-child(2) p,
+  .question-action-user div:nth-child(2) .user-link{
+    font-size: 12px;
+  }
+  .user-link div{
+    font-size: 12px;
+  }
+   h3{
+  font-size: 18px;
+  }
+  .display-ans p{
+    font-size: 13px;
+    margin: 5px 0px;
+  }
+  .post-ans-container form textarea{
+    width: calc(100% - 30px);
+  }
+}
+
+
