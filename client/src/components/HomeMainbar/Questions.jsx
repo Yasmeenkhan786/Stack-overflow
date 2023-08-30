@@ -5,6 +5,7 @@ import moment from 'moment'
 const Questions = ({question}) => {
   return (
     <div className="display-question-container">
+      <div className="vote-container">
       <div className="display-votes-ans">
         <p>{question.upVote.length - question.downVote.length}</p>
         <p>votes</p>
@@ -13,6 +14,8 @@ const Questions = ({question}) => {
         <p>{question.noOfanswers}</p>
         <p>answers</p>
         </div>
+        </div>
+        <div className="ans-container">
         <div className="display-question-details">
           <Link to={`/Questions/${question._id}`} className="question-title-link">
             {question.questionTitle}
@@ -28,7 +31,7 @@ const Questions = ({question}) => {
             </p>
           </div>
         </div>
-      
+        </div>
     </div>
   );
 };
