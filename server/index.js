@@ -10,7 +10,8 @@ const app = express();
 dotenv.config();
 app.use(cors( {
 origin : "https://stackoverflow-clone-yasmeen.netlify.app",
-credentials :false
+credentials :false,
+ methods:["GET","POST", "PATCH","DELETE"],
 }));
 app.use(function (req, res,next){
 res.header("Access-Control-Allow-Origin", "*");
