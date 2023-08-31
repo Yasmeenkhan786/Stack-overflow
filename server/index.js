@@ -9,9 +9,9 @@ import answerRoutes from "./routes/Answers.js";
 const app = express();
 dotenv.config();
 app.use(cors( {
-origin : "https://stackoverflow-clone-yasmeen.netlify.app",
-credentials :false,
+origin : "https://stack-overflow-clone-client.vercel.app",
  methods:["GET","POST", "PATCH","DELETE"],
+ credentials :true
 }));
 app.use(function (req, res,next){
 res.header("Access-Control-Allow-Origin", "*");
@@ -21,7 +21,6 @@ next();
 
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
-// app.use(cors());
 app.get("/", (req, res) => {
   res.send("This is a stack overflow clone API yess");
 });
