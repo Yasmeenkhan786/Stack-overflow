@@ -20,7 +20,7 @@ const QuestionsDetail = () => {
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const location = useLocation();
-  const url ='https://stackoverflow-clone-yasmeen.netlify.app'
+  const url ='https://stack-overflow-clone-client.vercel.app'
 
   const handlePostAns = (e, answerLength) => {
     e.preventDefault();
