@@ -24,7 +24,7 @@ const QuestionsDetail = () => {
 
   const handlePostAns = (e, answerLength) => {
     e.preventDefault();
-    reset()
+    // reset()
     if (User === null) {
       alert("Login or signup ro answer a question");
       Navigate("/Auth");
@@ -42,14 +42,14 @@ const QuestionsDetail = () => {
            
           })
         );
-       window.location.reload()
+       // window.location.reload()
       }
     }
     
   }
-  const reset =()=>{
-    setAnswer("")
-  }
+  // const reset =()=>{
+  //   setAnswer("")
+  // }
   const handleShare = () => {
     copy(url+location.pathname);
     alert("Copied url: "+url +location.pathname)
