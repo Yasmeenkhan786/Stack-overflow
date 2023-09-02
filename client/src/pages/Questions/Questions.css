@@ -170,6 +170,9 @@
   .post-ans-container form textarea{
     width: calc(100% - 30px);
   }
+  .post-ans-container p{
+    font-size: 13px;
+  }
 }
 
 
